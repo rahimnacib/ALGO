@@ -1,12 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
+
+// Définition de la structure d'un élément de la liste
 typedef struct element {
     int val;
     struct element *suivant;
 } element;
+
+// Fonction pour créer une liste vide
 element *creerListe() {
     return NULL; // Une liste vide est représentée par un pointeur NULL
 }
+
+// Fonction pour construire une liste à partir d'un tableau
 element *chargerListe(int Tab[], int taille, element *liste) {
     for (int i = taille - 1; i >= 0; i--) { // On insère les éléments en début
         element *nouveau = (element *)malloc(sizeof(element));
@@ -20,6 +26,8 @@ element *chargerListe(int Tab[], int taille, element *liste) {
     }
     return liste;
 }
+
+// Procédure pour afficher les éléments d'une liste
 void afficherListe(element *liste) {
     if (liste == NULL) {
         printf("La liste est vide\n");
@@ -31,6 +39,8 @@ void afficherListe(element *liste) {
         printf("NULL\n");
     }
 }
+
+// Fonction pour supprimer un élément à la fin de la liste
 element *supprimerEnFin(element *liste) {
     if (liste == NULL) {
         printf("La liste est déjà vide\n");
@@ -51,6 +61,8 @@ element *supprimerEnFin(element *liste) {
     temp->suivant = NULL;
     return liste;
 }
+
+// Fonction pour ajouter un élément au début de la liste
 element *ajouterEnDebut(element *liste, int valeur) {
     element *nouveau = (element *)malloc(sizeof(element));
     if (!nouveau) {
@@ -61,6 +73,8 @@ element *ajouterEnDebut(element *liste, int valeur) {
     nouveau->suivant = liste;
     return nouveau;
 }
+
+// Procédure pour vider une liste
 void viderListe(element *liste) {
     element *temp;
     while (liste != NULL) {
@@ -70,6 +84,8 @@ void viderListe(element *liste) {
     }
     printf("La liste est vide\n");
 }
+
+// Fonction main pour tester les fonctions
 int main() {
     int Tab[10] = {1, 3, 5, 7, 8, 10, 9, 11, 13, 20};
     element *liste = creerListe();
