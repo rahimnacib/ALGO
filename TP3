@@ -45,7 +45,6 @@ element *supprimerEnFin(element *liste) {
         free(liste);
         return NULL;
     }
-
     element *temp = liste;
     while (temp->suivant->suivant != NULL) {
         temp = temp->suivant;
